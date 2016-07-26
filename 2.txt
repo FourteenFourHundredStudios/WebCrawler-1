@@ -1,0 +1,153 @@
+
+
+
+
+!-- 
+
+
+
+
+
+
+
+Ultimate RC - Friendly forums, honest reviews, unique projects
+
+
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+(function() {
+var gads = document.createElement('script');
+gads.async = true;
+gads.type = 'text/javascript';
+var useSSL = 'https:' == document.location.protocol;
+gads.src = (useSSL ? 'https:' : 'http:') + 
+'//www.googletagservices.com/tag/js/gpt.js';
+var node = document.getElementsByTagName('script')[0];
+node.parentNode.insertBefore(gads, node);
+})();
+
+
+
+googletag.cmd.push(function() {
+googletag.defineSlot('/2799648/Homepage-468x60-01', [468, 60], 'div-gpt-ad-1373526593277-0').addService(googletag.pubads());
+googletag.defineSlot('/2799648/Homepage_and_misc_160x600', [160, 600], 'div-gpt-ad-1373526593277-1').addService(googletag.pubads());
+googletag.defineSlot('/2799648/Homepage_btm_728x90', [728, 90], 'div-gpt-ad-1373526593277-2').addService(googletag.pubads());
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+});
+
+
+
+
+
+	
+		 
+			
+				
+				
+				
+					
+					
+					  google.load('search', '1');
+					  google.setOnLoadCallback(function() {
+						google.search.CustomSearchControl.attachAutoCompletion(
+						  'partner-pub-4668814725623291:qw7wg3-kvis',
+						  document.getElementById('q'),
+						  'cse-search-box');
+					  });
+					
+					
+						
+							
+							
+							
+							
+							
+						
+					
+					
+				
+				
+					
+					
+					
+					
+					
+					
+				
+				
+			
+		
+		
+		  
+				
+					Ultimate Traxxas
+					Ultimate Tamiya
+					Toy RC reviews
+				
+				
+                    
+                    
+                    
+                    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1373526593277-1'); });
+                    
+                    
+				
+				
+			
+			
+				
+					More RC News... 
+
+                
+                
+                
+                googletag.cmd.push(function() { googletag.display('div-gpt-ad-1373526593277-0'); });
+                
+                
+
+				 
+					
+						
+
+
+
+
+
+
+
+					
+					Browse the URC Galleries... 
+				
+				
+				See more in the Ultimate RC Forums...
+				
+					
+                    
+                    
+                    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1373526593277-2'); });
+                    
+                    
+				
+			
+		
+		
+			
+Featuring: Ultimate Tamiya, Traxxas Slash forum, Slash 4x4 forum, Ultimate RC forums
+
+Original content &amp; design copyright &copy;2000 - 2013, Bamidele O. Shangobunmi &amp; the Ultimate RC Network. Privacy policy
+Manufacturer/vendor images, names, &amp; trademarks are copyrights of their lawful owners &amp; used with permission and/or within Fair Use guidelines.
+
+Lego fan? Check out JANG's LEGO blog and LEGO videos on YouTube		
+	
+	
+
+
+
+
+
+_uacct = "UA-292128-5";
+urchinTracker();
+
+
+
