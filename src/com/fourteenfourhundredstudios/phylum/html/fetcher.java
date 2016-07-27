@@ -45,10 +45,11 @@ public class fetcher {
 	    	}catch(Exception e){
 	    		e.printStackTrace();
 	    	}
-	    	
+	    //	System.out.println(urlName);
 	        Parser parser = new Parser(urlName);
-	        
-	       	writer = new PrintWriter(sourceCount+".txt", "UTF-8");
+	      //  Util util = new Util();
+	        //System.out.println(urlName);
+	       	writer = new PrintWriter(Util.getHash(urlName)+".txt", "UTF-8");
 	       	writer.println(data.toString());
 	       	writer.println(parser.removeHTML());
 	       	//writer.println(totalHtml);

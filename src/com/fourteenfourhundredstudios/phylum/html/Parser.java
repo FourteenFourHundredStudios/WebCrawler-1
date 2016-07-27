@@ -5,7 +5,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class Parser {
-	Document doc;
+	public Document doc;
 
 	public Parser(String url){
 		
@@ -18,14 +18,7 @@ public class Parser {
 	}
 	
 	public void getLinks(){
-	    Elements links = doc.select("a[href]");
-	    for(Element s : links){
-	    	String link=s.attr("href");
-	    	if(!link.startsWith("#")){
-	    		System.out.println(link);
-	    		//put link handling stuff here
-	    	}
-	    }
+
 	}
 	
 	public String removeHTML(){
