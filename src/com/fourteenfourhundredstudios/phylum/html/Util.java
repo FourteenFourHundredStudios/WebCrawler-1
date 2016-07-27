@@ -69,5 +69,25 @@ public class Util{
     	System.out.println("Hex format : " + hexString.toString());
     	*/
     }
+	
+	public static int nthIndex(String s,String find,int nth){
+		int val=0;
+		int count=0;
+		for(char b : s.toCharArray()){
+			String c = b+"";
+			if(c.equals(find)){
+				count++;
+				if(count == nth+1){
+					return val+1;
+				}
+			}
+			val++;
+		}
+		return -1;
+	}
 
+	public static String getBaseURL(String url){
+		return url.substring(0, Util.nthIndex(url, "/", 2));
+	}
+	
 }

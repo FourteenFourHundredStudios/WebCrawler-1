@@ -39,6 +39,8 @@ public class CrawlBot {
     //	saveAllLinksFrom("https://en.wikipedia.org/wiki/Java",true);
     	getNewLink();
     //	Util.getHash(",-");
+    	//String v="http://phylum.us/butts/facts/";
+    	//System.out.println(Util.getBaseURL(v));
     }
 
     
@@ -70,10 +72,10 @@ public class CrawlBot {
         	Elements links = doc.select("a[href]");
      	    for(Element s : links){
      	    	String link=s.attr("href");
-     	    	System.out.println(link);
+     	    	//System.out.println(link);
      	    	if(!link.startsWith("#")){
-     	    		if(link.startsWith("/"))link=url+link;
-     	    		System.out.println(link);
+     	    		if(link.startsWith("/"))link=Util.getBaseURL(url)+link;
+     	    		//System.out.println(link);
      	    		sourceCounter++;
                     //f.getHtml(link,sourceCounter);
      	    		String saveableLink=link+"\n";
