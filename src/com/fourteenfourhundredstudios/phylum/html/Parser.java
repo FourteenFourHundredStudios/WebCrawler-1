@@ -10,6 +10,7 @@ public class Parser {
 		
 		try{
 		Document doc = Jsoup.connect("https://en.wikipedia.org/wiki/Java_(programming_language)").get();
+		System.out.println(doc);
 	    Elements links = doc.select("a[href]");
 	    for(Element s : links){
 	    	String link=s.attr("href");
@@ -20,6 +21,11 @@ public class Parser {
 		}catch(Exception e){
 			
 		}
+	}
+	
+	public String removeHTML(Document website){
+		 Document doc = Jsoup.parse(website.html());
+		 return (doc.text());
 	}
 	
 	public static void main(String[] args){
