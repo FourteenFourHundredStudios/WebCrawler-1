@@ -5,31 +5,36 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class Parser {
+	Document doc;
 
-	public Parser(){
+	public Parser(String url){
 		
 		try{
-		Document doc = Jsoup.connect("https://en.wikipedia.org/wiki/Java_(programming_language)").get();
-		System.out.println(doc);
-	    Elements links = doc.select("a[href]");
-	    for(Element s : links){
-	    	String link=s.attr("href");
-	    	if(!link.startsWith("#")){
-	    		//put link handling stuff here
-	    	}
-	    }
+		doc = Jsoup.connect(url).get();
+
 		}catch(Exception e){
 			
 		}
 	}
 	
-	public String removeHTML(Document website){
-		 Document doc = Jsoup.parse(website.html());
-		 return (doc.text());
+	public void getLinks(){
+	    Elements links = doc.select("a[href]");
+	    for(Element s : links){
+	    	String link=s.attr("href");
+	    	if(!link.startsWith("#")){
+	    		System.out.println(link);
+	    		//put link handling stuff here
+	    	}
+	    }
 	}
 	
+	public String removeHTML(){
+		 Document newDoc = Jsoup.parse(doc.html());
+		 return (newDoc.text());
+	}
+	/*
 	public static void main(String[] args){
 		new Parser();
 	}
-	
+	//*/
 }
