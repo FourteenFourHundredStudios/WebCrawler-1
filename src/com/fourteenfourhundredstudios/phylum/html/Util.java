@@ -6,6 +6,13 @@ import java.security.MessageDigest;
 
 public class Util{
 	
+	public static String path="";
+	
+	public static String getPath(){
+		if(path.equals("")){return"";}
+		return "/"+path+"/";
+	}
+	
 	public static void removeFirstLine(String fileName)  {  
 		try{
 	    RandomAccessFile raf = new RandomAccessFile(fileName, "rw");          
@@ -33,7 +40,7 @@ public class Util{
 	
 	
 	public static String getHash(String str){
-	    
+		str=str.replaceAll("\\P{InBasic_Latin}", " ");
 		 StringBuffer sb = new StringBuffer();
         try{
         	MessageDigest md = MessageDigest.getInstance("SHA-256");
@@ -78,7 +85,7 @@ public class Util{
 			if(c.equals(find)){
 				count++;
 				if(count == nth+1){
-					return val+1;
+					return val;
 				}
 			}
 			val++;
@@ -89,5 +96,7 @@ public class Util{
 	public static String getBaseURL(String url){
 		return url.substring(0, Util.nthIndex(url, "/", 2));
 	}
+	
+	//public static String 
 	
 }

@@ -17,7 +17,7 @@ import org.json.JSONObject;
 
 public class fetcher {
 	
-	public String getHtml(String urlName, int sourceCount){
+	public String saveHtml(String urlName, int sourceCount,String subject){
 		String totalHtml = "";
 	    URL url;
 	    InputStream is = null;
@@ -41,18 +41,19 @@ public class fetcher {
 	  	   Date date = new Date();
 	    	JSONObject data=null;
 	    	try{
-	    		data = new JSONObject("{'url':'"+urlName+"','topics':['general'],'timestamp':'"+dateFormat.format(date)+"'}");
+	    		data = new JSONObject("{'url':'"+urlName+"','topics':["+subject+"],'timestamp':'"+dateFormat.format(date)+"'}");
 	    	}catch(Exception e){
 	    		e.printStackTrace();
 	    	}
 	    //	System.out.println(urlName);
 	        Parser parser = new Parser(urlName);
 	      //  Util util = new Util();
+	        String saveData=data.toString()+"\n"+parser.removeHTML()+"\n";
 	        //System.out.println(urlName);
-	       	writer = new PrintWriter(Util.getHash(urlName)+".txt", "UTF-8");
-	       	writer.println(data.toString());
-	       	writer.println(parser.removeHTML());
-	       	//writer.println(totalHtml);
+	       	writer = new PrintWriter(Util.getPath()+Util.getHash(urlName)+".txt", "UTF-8");
+	       	
+	       	writer.println(saveData);
+
 	       	writer.flush();
         	writer.close();
         	System.out.println(urlName+" just got saved");
