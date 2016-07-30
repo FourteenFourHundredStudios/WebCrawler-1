@@ -3,6 +3,7 @@ package com.fourteenfourhundredstudios.phylum.html;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -47,10 +48,10 @@ public class CrawlBot {
     public void getNewLink(){
     	String url ="";
     	try {
-    		br = new BufferedReader(new FileReader("Links2Download.txt"));
+    		br = new BufferedReader(new FileReader(Util.getPath()+"Links2Download.txt"));
     		while((url = br.readLine() )!=""){
     		//delete that url now here
-    		Util.removeFirstLine("Links2Download.txt");
+    		Util.removeFirstLine(Util.getPath()+"Links2Download.txt");
     		this.saveAllLinksFrom(url, true);
     		}
 		} catch (FileNotFoundException e) {
@@ -66,20 +67,41 @@ public class CrawlBot {
      
     public void saveAllLinksFrom(String url,boolean log){
         try{
-        	System.out.println(url);
-        	f.getHtml(url,sourceCounter);
+        //	String fileName=Util.getHash(url)+".txt";
+        	
+        	
+        
+        	System.out.println(url);   
+        	
         	Document doc = Jsoup.connect(url).get();
+        	String description="";
+        	Elements subjects = doc.select("title,h1,h2,h3,h4,h5");
+        	for(Element s : subjects){
+        		description+="'"+s.text()+"',";
+        	}
+        	description = description.substring(0,description.length()-1);
+        	
+        	System.out.println(description);
+        	
+        	f.saveHtml(url,sourceCounter,description);
+        	sourceCounter++;
+   	
         	Elements links = doc.select("a[href]");
-     	    for(Element s : links){
+
+        	for(Element s : links){
      	    	String link=s.attr("href");
      	    	//System.out.println(link);
-     	    	if(!link.startsWith("#")){
+     	    	if(!link.contains("#")){
      	    		if(link.startsWith("/"))link=Util.getBaseURL(url)+link;
-     	    		//System.out.println(link);
-     	    		sourceCounter++;
-                    //f.getHtml(link,sourceCounter);
+     	    		
+     	    		
+     	    		if(new File(Util.getPath()+Util.getHash(link)+".txt").exists()){
+     	    			System.out.println(link+" already exists");
+     	    			continue;
+     	    		}
+
      	    		String saveableLink=link+"\n";
-                    Files.write(Paths.get("Links2Download.txt"), saveableLink.getBytes(), StandardOpenOption.APPEND);
+                    Files.write(Paths.get(Util.getPath()+"Links2Download.txt"), saveableLink.getBytes(), StandardOpenOption.APPEND);
 
      	    	}
      	    }
@@ -95,6 +117,16 @@ public class CrawlBot {
     }
      //*
     public static void main(String[] args){
+
+    	try{
+    		Util.path=args[0];
+    		
+    	}catch(Exception e){
+    		e.printStackTrace();
+    		System.out.println("Did not get path");
+    	}
+    
+    	
         new CrawlBot();
     }
      //*/
