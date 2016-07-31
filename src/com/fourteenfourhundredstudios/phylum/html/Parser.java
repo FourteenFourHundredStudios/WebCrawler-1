@@ -23,6 +23,7 @@ public class Parser {
 	
 	public String removeHTML(){
 		 Document newDoc = Jsoup.parse(doc.html());
+		 
 		 return (newDoc.text());
 	}
 	/*
